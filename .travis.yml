@@ -1,0 +1,16 @@
+before_script:
+  - npm install -g cordova
+  - npm install -g ios-deploy --unsafe-perm=true
+script:
+  - cordova build --buildConfig build.json
+  - set -o pipefail && xcodebuild build -workspace "$TRAVIS_XCODE_WORKSPACE" -scheme "$TRAVIS_XCODE_SCHEME" -destination "$XCODE_DESNITATION" -derivedDataPath DerivedData -parallel-testing-enabled NO | xcpretty -f `xcpretty-travis-formatter`
+git:
+  depth: 1
+install: skip
+cache:
+  directories:
+    - DerivedData
+language: swift
+osx_image: xcode10.1
+xcode_scheme: HelloCordova
+xcode_workspace: platforms/ios/HelloCordova.xcworkspace
