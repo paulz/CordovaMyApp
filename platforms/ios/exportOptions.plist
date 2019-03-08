@@ -5,9 +5,9 @@
     <key>compileBitcode</key>
     <false/>
     <key>method</key>
-    <string>development</string>
+    <string>app-store</string>
     <key>teamID</key>
-    <string>FG35JLLMXX4A</string>
+    <string>35KC7LV9BL</string>
     <key>signingCertificate</key>
     <string>iPhone Developer</string>
   </dict>
